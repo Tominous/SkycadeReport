@@ -47,8 +47,10 @@ public class ReportCommand extends PlayerCommand
 			
         	for(ProxiedPlayer player : ProxyServer.getInstance().getPlayers()) {
         		if(player.hasPermission("skycadereport.staff")) {
-        			player.sendMessage(ChatColor.DARK_RED + "" + ChatColor.BOLD + "Report " + server.getInfo().getName() + 
-        					ChatColor.AQUA + " " + send.getName() + " " + ChatColor.RED + "Reported " + ChatColor.AQUA + target + ChatColor.RED + " for the reason '" + reason + "'");
+        			if(SkycadeReport.toggledStaff.get(player)) {
+            			player.sendMessage(ChatColor.DARK_RED + "" + ChatColor.BOLD + "Report " + server.getInfo().getName() + 
+            					ChatColor.AQUA + " " + send.getName() + " " + ChatColor.RED + "Reported " + ChatColor.AQUA + target + ChatColor.RED + " for the reason '" + reason + "'");
+        			}
         		}
         	}
         	

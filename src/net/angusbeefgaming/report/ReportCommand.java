@@ -25,6 +25,11 @@ public class ReportCommand extends PlayerCommand
         } else
         {
         	
+        	if(!SkycadeReport.reportSystemEnabled) {
+        		sender.sendMessage(ChatColor.RED + "The Report system is disabled right now!");
+        		return;
+        	}
+        	
         	String target = args[0];
         	String reason = combine(args, 1);
 			

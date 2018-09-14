@@ -28,13 +28,27 @@ public class ReportCommand extends PlayerCommand
         	String target = args[0];
         	String reason = combine(args, 1);
 			
-			ProxiedPlayer send = (ProxiedPlayer) sender;
+			ProxiedPlayer send = null;
+			try {
+				send = (ProxiedPlayer) sender;
+			}
+			catch(ClassCastException e) {
+				send.sendMessage(ChatColor.RED + "Sorry, but Console is not able to file any reports!");
+			}
+			
 			Server server = send.getServer();
+			
+			// First check if the player is reporting themselfs
+			
+			if(target.equalsIgnoreCase(send.getName())) {
+				send.sendMessage(ChatColor.RED + "You can't report yourself! Why would you want to do that?");
+				return;
+			}
 			
         	for(ProxiedPlayer player : ProxyServer.getInstance().getPlayers()) {
         		if(player.hasPermission("skycadereport.staff")) {
         			player.sendMessage(ChatColor.DARK_RED + "" + ChatColor.BOLD + "Report " + server.getInfo().getName() + 
-        					ChatColor.AQUA + " " + send.getName() + " " + ChatColor.RED + "Reported " + target + " for the reason '" + reason + "'");
+        					ChatColor.AQUA + " " + send.getName() + " " + ChatColor.RED + "Reported " + ChatColor.AQUA + target + ChatColor.RED + " for the reason '" + reason + "'");
         		}
         	}
         	

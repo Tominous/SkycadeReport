@@ -1,0 +1,5 @@
+name: SkycadeReports
+main: net.angusbeefgaming.report.SkycadeReport
+version: 1.0
+description: Report System for the Skycade Network
+author: Atticus Zambrana (MrBeefSteak)

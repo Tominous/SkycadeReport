@@ -19,6 +19,8 @@ public class SkycadeReport extends Plugin {
 	@Override
 	public void onEnable() {
 		getProxy().getPluginManager().registerCommand(this, new ReportCommand());
+		getProxy().getPluginManager().registerCommand(this, new ToggleReportsCommand());
+		getProxy().getPluginManager().registerListener(this, new PlayerJoinEvents());
 	}
 
 }

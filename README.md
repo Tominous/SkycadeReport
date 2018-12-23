@@ -28,7 +28,7 @@ Then /togglereports, if a staff member want to do something, without being spamm
 
 and Finally /togglereportsystem, Which requires the permission node 'skycadereport.admin'
 
-This will disable the ability for ANYONE to report any players. good for if players are sending false reports.
+This will disable the ability for ANYONE to report any players. good for if players are sending false reports, or if an Admin needs to disable the report system for any reason.
 
 
 ## What if I need help with this plugin, or any other plugin you have coded?
